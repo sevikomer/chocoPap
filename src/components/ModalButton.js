@@ -4,8 +4,19 @@ import ModalContent from './ModalContent'
 
 
 function ModalButton() {
+    const [showModal, setShowModal] = useState(false)
   return (
-    <button><img src='/images/shopping.svg' alt='shopping'/></button>
+    <>
+    <button 
+    onClick={() => setShowModal (true)}>
+        <img src='/images/shopping.svg' alt='shopping'/>
+    </button>
+    {showModal && 
+    createPortal(
+    <ModalContent closeModal = {() => setShowModal (false)}/>, 
+    document.body
+    )}
+    </>
   )
 }
 
