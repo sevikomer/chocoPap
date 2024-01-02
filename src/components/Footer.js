@@ -1,22 +1,25 @@
 import React from 'react'
-import "./Footer.css";
 
 function Footer() {
   return (
-    <div>
-        <ul className='flex justify-center'>
-            <li>
-                <h3>Choco Pap</h3>
+    <div className='flex pb-1 bg-orange text-white'>
+        <ul className='flex justify-start gap-10 p-1'>
+            <li className='basis-1/3 text-left'>
+                <h3 className='text-xl pb-4'>Choco Pap</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam minima odio at veritatis asperiores hic earum ex pariatur unde placeat.</p>
             </li>
-            <li>
-                <h3>Contact</h3>
+            <li className='basis-1/3 text-left'>
+                <h3 className='text-xl pb-4'>Contact</h3>
                 <p>Adresse : 51 rue du chocolat 75000 Paris</p>
                 <p>Téléphone : 01 23 45 67 89</p>
                 <p>Horaires : 9h00-17h00 du Lundi au vendredi</p>
             </li>
-            <li>Logos réseaux sociaux</li>
-        </ul>
+          </ul>
+            <div className='flex items-center gap-8 m-1 p-4'>
+              <img src={'/images/facebook.svg'} alt='facebookLogo' className='w-10 bg-white' />
+              <img src={'/images/instagram.svg'} alt='instagramLogo' className='w-10 bg-white' />
+              <img src={'/images/twitter.svg'} alt='twitterLogo' className='w-10 bg-white' />
+            </div>
     </div>
   )
 }
