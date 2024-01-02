@@ -1,22 +1,20 @@
 import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
-import "./Slider.css";
+import { Link } from 'react-router-dom';
 
 
 function Slider() {
   return (
+    <>
+    <h1 className='absolute z-10 top-1/3 right-1/3 text-white text-8xl font-bold'>CHOCO PAP</h1>
     <Carousel>
-        <div>
             <img src={'/images/accueil1.jpg'} alt='accueil1'/>
-        </div>
-        <div>
             <img src={'/images/accueil2.jpg'} alt='accueil2'/>
-        </div>
-        <div>
             <img src={'/images/accueil3.jpg'} alt='accueil3'/>
-        </div>
     </Carousel>
+    <Link to="/shop" className='bg-orange text-white shadow-xl shadow-black p-2 text-4xl absolute z-10 -translate-y-80 translate-x-80 rounded'>VOIR LA BOUTIQUE</Link>
+    </>
   )
 }
 
