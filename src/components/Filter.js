@@ -2,7 +2,6 @@ import React from 'react'
 
 function Filter() {
   return (
-    <>
     <fieldset className='mt-20 p-2 pr-20 bg-orange'>
     <legend>Filtre</legend>
     <div className='pt-2 pr-5'>
@@ -93,8 +92,6 @@ function Filter() {
     </div>
     </div>
     </fieldset>
-    </>
-    
   )
 }
 
