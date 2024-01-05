@@ -13,7 +13,7 @@ function Slider() {
             <img src={'/images/accueil2.jpg'} alt='accueil2'/>
             <img src={'/images/accueil3.jpg'} alt='accueil3'/>
     </Carousel>
-    <Link to="/shop" className='bg-orange text-white shadow-xl shadow-black p-2 text-4xl absolute z-10 -translate-y-80 translate-x-80 rounded'>VOIR LA BOUTIQUE</Link>
+    <Link to="/shop" className='bg-orange text-white shadow-xl shadow-black p-2 text-4xl absolute z-10 bottom-1/3 rounded'>VOIR LA BOUTIQUE</Link>
     </>
   )
 }
