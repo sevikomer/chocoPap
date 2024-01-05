@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='flex pb-1 bg-orange text-white'>
-        <ul className='flex justify-start gap-10 p-1'>
+    <div className='lg:flex sm:block pb-1 bg-orange text-white'>
+        <ul className='lg:flex sm:block justify-start gap-10 p-1'>
             <li className='basis-1/3 text-left'>
                 <h3 className='text-xl pb-4'>Choco Pap</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam minima odio at veritatis asperiores hic earum ex pariatur unde placeat.</p>
