@@ -4,7 +4,7 @@ import ModalButton from './ModalButton';
 
 function Nav() {
   return (
-    <div className='flex justify-between bg-orange'>
+    <div className='flex justify-between bg-orange text-white'>
         <div className='m-1 p-3'>
             <Link to="/" className=''><img src={'/images/logo.png'} alt="logo" className='w-20'/></Link>
         </div>
