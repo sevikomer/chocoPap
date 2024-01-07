@@ -1,7 +1,6 @@
 import React from 'react'
-import productItems from '../products.json'
+import productItems from '../products.json' 
 import Filter from './Filter'
-
 
 function Products(props) {
   const ProductItems = productItems.map( productItem => { 
