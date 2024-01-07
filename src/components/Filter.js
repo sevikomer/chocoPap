@@ -7,36 +7,44 @@ function Filter() {
     <div className='pt-2 pr-5'>
     <h2 className='pb-2 underline font-semibold'>Catégories</h2>
     <div>
-    <input type="checkbox" id="all" name="all" checked />
-    <label for="all">Tous</label>
+    <label htmlFor="all">
+    <input type="checkbox" id="all" name="all" checked/>
+    Tous</label>
   </div>
   <div>
+  <label htmlFor="whiteChocolate">
     <input type="checkbox" id="whiteChocolate" name="whiteChocolate" />
-    <label for="whiteChocolate"> Chocolat blanc</label>
+    Chocolat blanc</label>
   </div>
   <div>
+  <label htmlFor="milkChocolate">
     <input type="checkbox" id="milkChocolate" name="milkChocolate" />
-    <label for="scales"> Chocolat au lait</label>
+     Chocolat au lait</label>
   </div>
   <div>
+  <label>
     <input type="checkbox" id="blackChocolate" name="blackChocolate" />
-    <label for="blackChocolate"> Chocolat noir</label>
+    Chocolat noir</label>
   </div>
   <div>
+  <label>
     <input type="checkbox" id="nut" name="nut" />
-    <label for="nut"> Noix/Noisette</label>
+     Noix/Noisette</label>
   </div>
   <div>
+  <label>
     <input type="checkbox" id="fruit" name="fruit" />
-    <label for="fruit"> Fruit</label>
+     Fruit</label>
   </div>
   <div>
+  <label>
     <input type="checkbox" id="caramel" name="caramel" />
-    <label for="caramel"> Caramel</label>
+     Caramel</label>
   </div>
   <div>
+  <label>
     <input type="checkbox" id="liquor" name="liquor" />
-    <label for="liquor"> Liqueur</label>
+     Liqueur</label>
   </div>
   </div>
   <div className='pt-2'>
