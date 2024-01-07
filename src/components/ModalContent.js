@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ModalContent({closeModal}) {
+function ModalContent({closeModal, productItems, cartItems, setCartItems}) {
   return (
     <>
         <div onClick={closeModal}
