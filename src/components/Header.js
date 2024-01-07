@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ModalButton from './ModalButton';
 
-function Header({cartItems, setCartItems}) {
+function Header({productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) {
   return (
     <div className='flex justify-between bg-orange text-white'>
         <div className='m-1 p-3'>
@@ -11,7 +11,7 @@ function Header({cartItems, setCartItems}) {
         <nav className='m-1 p-4 flex items-center gap-8 text-xl'>
            <Link to="/" className=''>Accueil</Link>
            <Link to="/shop">Boutique</Link>
-           <ModalButton cartItems={cartItems} setCartItems={setCartItems}/>
+           <ModalButton productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>
         </nav>
     </div>
   )
