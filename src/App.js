@@ -29,11 +29,12 @@ const handleRemoveProduct = (productItem) => {
 const handleCartClearance = () => {
   setCartItems([])
 }
+const deleteProduct = (productItem) => { setCartItems (cartItems.filter((cartItem) => cartItem.id !== productItem.id)) }
   return (
     <div>
       <BrowserRouter>
-        <Header productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>
-        <Nav productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>
+        <Header productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} deleteProduct={deleteProduct}/>
+        <Nav productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} deleteProduct={deleteProduct}/>
         <Footer />
       </BrowserRouter>
     </div>
