@@ -5,13 +5,13 @@ import Shop from './Shop'
 import ModalContent from './ModalContent'
 
 
-function Nav({productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) {
+function Nav({productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, deleteProduct}) {
   return (
     <div>
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/shop" element={<Shop productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>} />
-          <Route path="/cart" element={<ModalContent productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>} />
+          <Route path="/shop" element={<Shop productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} deleteProduct={deleteProduct}/>} />
+          <Route path="/cart" element={<ModalContent productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} deleteProduct={deleteProduct}/>} />
         </Routes>
     </div>
   )
