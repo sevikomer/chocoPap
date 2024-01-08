@@ -4,7 +4,7 @@ import ModalContent from './ModalContent'
 
 
 
-function ModalButton({cartItems, setCartItems, productItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) {
+function ModalButton({cartItems, setCartItems, productItems, handleAddProduct, handleRemoveProduct, handleCartClearance, deleteProduct}) {
     const [showModal, setShowModal] = useState(false)
   return (
     <>
@@ -14,7 +14,7 @@ function ModalButton({cartItems, setCartItems, productItems, handleAddProduct, h
     </button>
     {showModal && 
     createPortal(
-    <ModalContent closeModal = {() => setShowModal (false)} productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>, 
+    <ModalContent closeModal = {() => setShowModal (false)} productItems={productItems} cartItems={cartItems} setCartItems={setCartItems} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance} deleteProduct={deleteProduct}/>, 
     document.body
     )}
     </>
