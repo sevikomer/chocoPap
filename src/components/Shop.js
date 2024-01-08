@@ -1,7 +1,7 @@
 import React from 'react'
 import Filter from './Filter'
 
-function Shop({productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) {
+function Shop({productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, deleteProduct}) {
   const Products = productItems?.map( productItem => { 
       return(
         <div key={productItem.id} className='p-20 text-center'>
@@ -14,7 +14,7 @@ function Shop({productItems, cartItems, setCartItems, handleAddProduct, handleRe
             <div>{productItem.price} €</div>
             <div>Note : {productItem.note}</div> 
             <div>
-              <button className='bg-yellow m-2 p-2 text-white rounded' onClick={() => handleAddProduct(productItem)}>Ajouter au panier</button>
+              <button className='bg-yellow hover:bg-orange active:bg-orange focus:outline-none focus:ring focus:ring-yellow m-2 p-2 text-white rounded' onClick={() => handleAddProduct(productItem)}>Ajouter au panier</button>
             </div>
         </div> 
         )
