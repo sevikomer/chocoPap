@@ -10,7 +10,9 @@ module.exports = {
         'black': '#1F1615',
         'orange': '#B65F28',
         'yellow': '#FFD543',
-
+      },
+      fontFamily: {
+        'fjalla': ['Fjalla One'],
       },
     },
   },

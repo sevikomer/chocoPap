@@ -39,25 +39,25 @@ function Products({ productItems, handleAddProduct }) {
 
 
     return (
-        <div className='flex'>
+        <div className='lg:flex sm:block'>
             <div>
                 <Filter filteredList={filteredList}
                     setSelectedCategories={updateSelectedCategories}
                     resetSelectedCategories={resetSelectedCategories}
                     selectedCategories={selectedCategories} />
             </div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-2'>
                 {filteredList.map(productItem => (
                     <div key={productItem.id} className='p-20 text-center'>
-                        <Link to="/product">
-                            <div>
+                        <Link to={`/product/${productItem.id}`}>
+                            <div className='flex justify-center '>
                                 <img src={productItem.image} alt='' className='w-60 h-40' />
                             </div>
                             <div>
-                                <h3>{productItem.title}</h3>
+                                <h3 className='font-bold text-xl'>{productItem.title}</h3>
                             </div>
-                            <div>{productItem.price} €</div>
-                            <div>Note : {productItem.note} </div>
+                            <div className='text-blue font-bold'>{productItem.price} €</div>
+                            <div className='text-orange'>Note : {productItem.note} </div>
                         </Link>
                         <div>
                             <button className='bg-yellow hover:bg-orange active:bg-orange focus:outline-none focus:ring focus:ring-yellow m-2 p-2 text-white rounded' onClick={() => handleAddProduct(productItem)}>Ajouter au panier</button>
