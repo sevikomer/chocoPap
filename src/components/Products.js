@@ -4,12 +4,16 @@ import Filter from './Filter';
 
 function Products({ productItems, handleAddProduct }) {
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [minPrice, setMinPrice] = useState(1)
+    const [maxPrice, setMaxPrice] = useState(20)
+    const [minNote, setMinNote] = useState(0)
+    const [maxNote, setMaxNote] = useState(5)
 
-    const filteredList = useMemo(getFilteredList, [selectedCategories, productItems]);
+    const filteredList = useMemo(getFilteredList, [selectedCategories, minPrice, maxPrice, minNote, maxNote, productItems]);
 
     function getFilteredList() {
         if (selectedCategories?.length === 0) {
-            return productItems;
+            return productItems.filter((productItems) => (productItems.price >= minPrice && productItems.price <= maxPrice) && (productItems.note >= minNote && productItems.note <= maxNote));
         }
 
         const transformedProducts = productItems.map((p) => ({
@@ -21,7 +25,7 @@ function Products({ productItems, handleAddProduct }) {
             }).filter((c) => c)
         }));
 
-        return transformedProducts.filter((productItems) => productItems.category.find((c) => selectedCategories.includes(c)));
+        return transformedProducts.filter((productItems) => (productItems.category.find((c) => selectedCategories.includes(c))) && (productItems.price >= minPrice && productItems.price <= maxPrice) && (productItems.note >= minNote && productItems.note <= maxNote));
     };
 
     const updateSelectedCategories = (value) => {
@@ -44,7 +48,11 @@ function Products({ productItems, handleAddProduct }) {
                 <Filter filteredList={filteredList}
                     setSelectedCategories={updateSelectedCategories}
                     resetSelectedCategories={resetSelectedCategories}
-                    selectedCategories={selectedCategories} />
+                    selectedCategories={selectedCategories}
+                    setMinPrice={setMinPrice}
+                    setMaxPrice={setMaxPrice}
+                    setMinNote={setMinNote}
+                    setMaxNote={setMaxNote} />
             </div>
             <div className='grid lg:grid-cols-3 sm:grid-cols-2'>
                 {filteredList.map(productItem => (

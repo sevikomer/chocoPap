@@ -36,11 +36,11 @@ function ModalContent({ closeModal, productItems, cartItems, setCartItems, handl
                 </div>
                 <div className='text-blue'>{cartItem.price} €</div>
               </div>
-              <div className='flex justify-start ml-8 p-2'>
-                <div className='pt-3 px-1 border-solid border-2 border-orange rounded'>{cartItem.quantity}</div>
-                <div className='flex flex-col px-1 border-solid border-2 border-orange rounded bg-yellow'>
-                  <button className='bg-yellow hover:bg-orange' onClick={() => handleAddProduct(cartItem)}>+</button>
-                  <button className='bg-yellow hover:bg-orange' onClick={() => handleRemoveProduct(cartItem)}>-</button>
+              <div className='flex ml-8 p-2'>
+                <div className='pt-3 px-1 border-solid border-2 border-yellow'>{cartItem.quantity}</div>
+                <div className='flex bg-yellow'>
+                  <button className='text-white hover:bg-orange' onClick={() => handleAddProduct(cartItem)}>+</button>
+                  <button className='text-white hover:bg-orange' onClick={() => handleRemoveProduct(cartItem)}>-</button>
                 </div>
               </div>
             </div>

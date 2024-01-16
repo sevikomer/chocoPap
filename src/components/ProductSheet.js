@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-function ProductSheet({ productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, deleteProduct }) {
+function ProductSheet({ productItems, cartItems, setCartItems }) {
 
   const params = useParams()
 
@@ -11,7 +11,17 @@ function ProductSheet({ productItems, cartItems, setCartItems, handleAddProduct,
 
   const productItem = useMemo(getProductItem, [params.productId, productItems]);
 
-  let quantity = 1
+  const [quantity, setQuantity] = useState(1)
+
+  const handleAddProduct = (productItem) => {
+    const ProductExist = cartItems.find((cartItem) => cartItem.id === productItem.id);
+    if (ProductExist) {
+      setCartItems(cartItems.map((cartItem) => cartItem.id === productItem.id ? { ...ProductExist, quantity: ProductExist.quantity + quantity } : cartItem));
+    }
+    else {
+      setCartItems([...cartItems, { ...productItem, quantity: quantity }])
+    }
+  }
 
   return (
     <div>
@@ -26,16 +36,12 @@ function ProductSheet({ productItems, cartItems, setCartItems, handleAddProduct,
             </div>
             <div className='text-blue font-semibold text-xl pb-4'>{productItem.price} €</div>
             <div className='pb-4'>{productItem.description}</div>
-            <div className='flex'>
-              <div className='flex'>
-                <div>{quantity}</div>
-                <div>
-                  <div>
-                    <button onClick={() => "handleIncrementQuantity()"}>+</button>
-                  </div>
-                  <div>
-                    <button onClick={() => "handleDecrementQuantity()"}>-</button>
-                  </div>
+            <div className='lg:flex md:block'>
+              <div className='flex lg:ml-8 p-2'>
+                <div className='pt-2 pr-1 pl-4 border-solid border-2 border-yellow'>{quantity}</div>
+                <div className='flex bg-yellow'>
+                  <button className='text-white hover:bg-orange' onClick={() => setQuantity(quantity + 1)}>+</button>
+                  <button className='text-white hover:bg-orange' onClick={() => setQuantity(quantity - 1)}>-</button>
                 </div>
               </div>
               <div>
@@ -51,7 +57,7 @@ function ProductSheet({ productItems, cartItems, setCartItems, handleAddProduct,
           <div className='pt-4 pb-4'>{productItem.ingredients}</div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

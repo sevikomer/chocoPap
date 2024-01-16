@@ -19,7 +19,7 @@ function FilterInput({ onChange, checked, id, value, label, name }) {
 }
 
 
-function Filter({ selectedCategories, resetSelectedCategories, setSelectedCategories }) {
+function Filter({ selectedCategories, resetSelectedCategories, setSelectedCategories, setMinPrice, setMaxPrice, setMinNote, setMaxNote }) {
 
   const [isCategoryOpen, setIsCategoryOpen] = useState(true)
   const [isPriceOpen, setIsPriceOpen] = useState(true)
@@ -47,12 +47,16 @@ function Filter({ selectedCategories, resetSelectedCategories, setSelectedCatego
         </div>
       </section>
       <div className='pt-4'>
-        <h2 className='text-yellow pb-2 underline font-semibold'>Prix
-          <button onClick={() => setIsPriceOpen((prev) => !prev)}>+</button></h2>
+        <h2 className='text-yellow pb-2 underline font-semibold'>
+          Prix
+          <button onClick={() => setIsPriceOpen((prev) => !prev)}>
+            +
+          </button>
+        </h2>
         <div className={isPriceOpen ? "showFilter" : "hideFilter"}>
           <label htmlFor="minPrice" className='lg:text-white md:text-brown'>Prix min </label>
-          <select name="minPrice" id="minPrice">
-            <option value="">1€</option>
+          <select name="minPrice" id="minPrice" onChange={e => setMinPrice(e.target.value)}>
+            <option value="1">1€</option>
             <option value="5">5€</option>
             <option value="10">10€</option>
             <option value="15">15€</option>
@@ -61,7 +65,7 @@ function Filter({ selectedCategories, resetSelectedCategories, setSelectedCatego
         </div>
         <div className={isPriceOpen ? "showFilter" : "hideFilter"}>
           <label htmlFor="maxPrice" className='lg:text-white md:text-brown'>Prix max </label>
-          <select name="maxPrice" id="maxPrice">
+          <select name="maxPrice" id="maxPrice" onChange={e => setMaxPrice(e.target.value)}>
             <option value="20">20€</option>
             <option value="15">15€</option>
             <option value="10">10€</option>
@@ -72,12 +76,15 @@ function Filter({ selectedCategories, resetSelectedCategories, setSelectedCatego
       </div>
       <div className='pt-4'>
         <h2 className='text-yellow pb-2 underline font-semibold'>Note
-          <button onClick={() => setIsNoteOpen((prev) => !prev)}>+</button></h2>
+          <button onClick={() => setIsNoteOpen((prev) => !prev)}>
+            +
+          </button>
+        </h2>
         <div className={isNoteOpen ? "showFilter" : "hideFilter"}>
           <label htmlFor="minNote" className='lg:text-white md:text-brown'>Note min </label>
-          <select name="minNote" id="minNote">
-            <option value="">0</option>
-            <option value="">1</option>
+          <select name="minNote" id="minNote" onChange={e => setMinNote(e.target.value)}>
+            <option value="0">0</option>
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -86,8 +93,8 @@ function Filter({ selectedCategories, resetSelectedCategories, setSelectedCatego
         </div>
         <div className={isNoteOpen ? "showFilter" : "hideFilter"}>
           <label htmlFor="maxNote" className='lg:text-white md:text-brown'>Note max </label>
-          <select name="maxNote" id="maxNote">
-            <option value="">5</option>
+          <select name="maxNote" id="maxNote" onChange={e => setMaxNote(e.target.value)}>
+            <option value="5">5</option>
             <option value="4">4</option>
             <option value="3">3</option>
             <option value="2">2</option>
