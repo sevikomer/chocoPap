@@ -13,6 +13,12 @@ function ProductSheet({ productItems, cartItems, setCartItems }) {
 
   const [quantity, setQuantity] = useState(1)
 
+  const decrementQuantity = () => {
+    if (quantity === 1) {
+      return quantity
+    } else { setQuantity(quantity - 1) }
+  }
+
   const handleAddProduct = (productItem) => {
     const ProductExist = cartItems.find((cartItem) => cartItem.id === productItem.id);
     if (ProductExist) {
@@ -41,7 +47,7 @@ function ProductSheet({ productItems, cartItems, setCartItems }) {
                 <div className='pt-2 pr-1 pl-4 border-solid border-2 border-yellow'>{quantity}</div>
                 <div className='flex bg-yellow'>
                   <button className='text-white hover:bg-orange' onClick={() => setQuantity(quantity + 1)}>+</button>
-                  <button className='text-white hover:bg-orange' onClick={() => setQuantity(quantity - 1)}>-</button>
+                  <button className='text-white hover:bg-orange' onClick={() => decrementQuantity()}>-</button>
                 </div>
               </div>
               <div>

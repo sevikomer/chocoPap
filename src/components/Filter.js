@@ -11,6 +11,7 @@ function FilterInput({ onChange, checked, id, value, label, name }) {
           name={name}
           onChange={onChange}
           checked={checked}
+          className='accent-yellow'
         />
         {label}
       </label>

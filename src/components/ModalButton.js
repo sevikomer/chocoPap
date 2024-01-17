@@ -12,8 +12,8 @@ function ModalButton({ cartItems, setCartItems, productItems, handleAddProduct, 
         className='flex items-center'
         onClick={() => setShowModal(true)}>
         <span className='pr-2 lg:hidden'>Panier </span>
-        <div>{cartItems.quantity}</div>
-        <img src='/images/shopping.svg' alt='shopping' />
+        <div className='text-blue pr-1'>{cartItems.length}</div>
+        <img src='/images/shopping.svg' alt='shopping' className='w-5' />
       </button>
       {showModal &&
         createPortal(

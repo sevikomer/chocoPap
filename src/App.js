@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { BrowserRouter } from 'react-router-dom';
@@ -7,7 +7,19 @@ import AppRoutes from './Routes';
 
 function App() {
   const productItems = data;
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCartItems = localStorage.getItem('cartItems');
+    const parsedCartItems = JSON.parse(savedCartItems);
+    return parsedCartItems || "";
+  });
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+
+  console.log('localstorage:', localStorage)
+
+
   const handleAddProduct = (productItem) => {
     const ProductExist = cartItems.find((cartItem) => cartItem.id === productItem.id);
     if (ProductExist) {
