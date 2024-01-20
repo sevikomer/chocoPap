@@ -21,7 +21,7 @@ function Products({ productItems, handleAddProduct }) {
             category: Object.entries(p.category).map(([key, value]) => {
                 if (value) {
                     return key;
-                }
+                } return p.category
             }).filter((c) => c)
         }));
 
