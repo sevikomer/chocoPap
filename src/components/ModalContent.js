@@ -1,6 +1,7 @@
 import React from 'react'
 
 function ModalContent({ closeModal, productItems, cartItems, setCartItems, handleAddProduct, handleRemoveProduct, handleCartClearance, deleteProduct }) {
+  console.log('cartItems:', cartItems)
   const totalPrice = (cartItems.reduce((price, cartItem) => price + cartItem.quantity * cartItem.price, 0)).toFixed(2)
 
   return (
