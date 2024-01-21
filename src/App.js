@@ -10,7 +10,7 @@ function App() {
   const [cartItems, setCartItems] = useState(() => {
     const savedCartItems = localStorage.getItem('cartItems');
     const parsedCartItems = JSON.parse(savedCartItems);
-    return parsedCartItems || "";
+    return parsedCartItems || [];
   });
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
