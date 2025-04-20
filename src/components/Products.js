@@ -54,24 +54,41 @@ function Products({ productItems, handleAddProduct }) {
                     setMinNote={setMinNote}
                     setMaxNote={setMaxNote} />
             </div>
-            <div className='grid lg:grid-cols-3 sm:grid-cols-2'>
-                {filteredList.map(productItem => (
-                    <div key={productItem.id} className='p-20 text-center'>
-                        <Link to={`/product/${productItem.id}`}>
-                            <div className='flex justify-center '>
-                                <img src={productItem.image} alt='' className='w-60 h-40' />
+
+            <div className="bg-white">
+                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+
+                    <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        {filteredList.map((productItem) => (
+                            <div key={productItem.id} className="group relative">
+                                <Link to={`/product/${productItem.id}`}>
+                                    <img
+                                        alt={productItem.image}
+                                        src={productItem.image}
+                                        className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
+                                    />
+                                    <div className="mt-4 flex justify-between">
+                                        <div>
+                                            <h3 className="text-sm text-gray-700">
+                                                <a href={productItem.href}>
+                                                    <span aria-hidden="true" className="absolute inset-0" />
+                                                    {productItem.title}
+                                                </a>
+                                            </h3>
+                                            <p className="mt-1 text-sm text-gray-500">Note : {productItem.note}</p>
+                                        </div>
+                                        <p className="text-sm font-medium text-blue">{productItem.price} €</p>
+                                    </div>
+                                </Link>
+                                {/* <div className='flex justify-center items-center bg-yellow hover:bg-orange active:bg-orange focus:outline-none focus:ring focus:ring-yellow mt-2 p-2 text-white rounded'>
+                                    <button onClick={() => handleAddProduct(productItem)}>Ajouter au panier</button>
+                                </div> */}
                             </div>
-                            <div>
-                                <h3 className='font-bold text-xl'>{productItem.title}</h3>
-                            </div>
-                            <div className='text-blue font-bold'>{productItem.price} €</div>
-                            <div className='text-orange'>Note : {productItem.note} </div>
-                        </Link>
-                        <div>
-                            <button className='bg-yellow hover:bg-orange active:bg-orange focus:outline-none focus:ring focus:ring-yellow m-2 p-2 text-white rounded' onClick={() => handleAddProduct(productItem)}>Ajouter au panier</button>
-                        </div>
+
+                        ))}
+
                     </div>
-                ))}
+                </div>
             </div>
         </div>
     )

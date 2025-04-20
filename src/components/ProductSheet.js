@@ -42,12 +42,12 @@ function ProductSheet({ productItems, cartItems, setCartItems }) {
             </div>
             <div className='text-blue font-semibold text-xl pb-4'>{productItem.price} €</div>
             <div className='pb-4'>{productItem.description}</div>
-            <div className='lg:flex md:block'>
+            <div className=''>
               <div className='flex lg:ml-8 p-2'>
-                <div className='pt-2 pr-1 pl-4 border-solid border-2 border-yellow'>{quantity}</div>
-                <div className='flex bg-yellow'>
-                  <button className='text-white hover:bg-orange' onClick={() => setQuantity(quantity + 1)}>+</button>
-                  <button className='text-white hover:bg-orange' onClick={() => decrementQuantity()}>-</button>
+                <div className='m-1 px-4 py-1 border-solid border-2 border-yellow'>{quantity}</div>
+                <div className='flex'>
+                  <button className='text-white flex items-center justify-center m-1 px-2 py-1 bg-yellow hover:bg-orange' onClick={() => setQuantity(quantity + 1)}>+</button>
+                  <button className='text-white flex items-center justify-center m-1 px-2 py-1 bg-yellow hover:bg-orange' onClick={() => decrementQuantity()}>-</button>
                 </div>
               </div>
               <div>

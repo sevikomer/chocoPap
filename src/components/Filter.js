@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 function FilterInput({ onChange, checked, id, value, label, name }) {
   return (
     <div className='lg:text-white md:text-brown'>
